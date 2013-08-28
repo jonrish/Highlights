@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<%= render "shared/header" %>
+
+<h1><%= notice %><%= alert %></h1>
+
+<div class="main-container">
+	<div class="content">
+
 <%= yield %>
+
+	</div>
+</div>
+
+<%= render "shared/footer" %>
 
 </body>
 </html>

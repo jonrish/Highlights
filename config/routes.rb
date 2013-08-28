@@ -1,4 +1,17 @@
 Highlights3::Application.routes.draw do
+  get 'home/index'
+
+  devise_for :users
+
+  resources :highlights
+
+  namespace :admin do
+    resources :users
+    resources :highlight_types
+    resources :highlights
+  end
+
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

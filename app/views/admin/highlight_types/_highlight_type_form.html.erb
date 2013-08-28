@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @highlight_type] do |f| %>
+	<%= f.input :name, label: 'Highlight Type Name' %>
+	<%= f.input :description, label: 'Highlight Type Description' %>
+	<%= f.input :price, label: 'Highlight Type Price' %>
+	<%= f.input :active, label: 'Highlight Type Status' %>
+	<%= f.submit 'Submit' %>
+<%- end %>

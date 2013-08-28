@@ -5,6 +5,21 @@ gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'simple_form'
+gem 'devise'
+gem 'cancan'
+
+group :test, :development do
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'launchy'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

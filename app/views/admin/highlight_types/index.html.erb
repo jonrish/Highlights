@@ -1,0 +1,12 @@
+<%= link_to 'Create A New Highlight Type', new_admin_highlight_type_path %>
+
+<%- @highlight_types.each do |type| %>
+	<ul>
+		<li><%= type.name %></li>
+		<li><%= type.description %></li>
+		<li><%= type.price %></li>
+		<li>Active: <%= type.active%></li>
+		<li><%= link_to 'Edit This Highlight Type', edit_admin_highlight_type_path(type) %></li>
+		<li><%= link_to 'Delete This Highlight Type', [:admin, type], method: :delete, data: { confirm: "Are you sure?" } %></li>
+	</ul>
+<%- end %>

@@ -1,0 +1,29 @@
+<div class="sell btcf">
+	<h2>Now's your chance to be the star!</h2>
+	<ul>
+		<li>Have you ever dreamed of winning it in the bottom of the 9th with a homer?</li>
+		<li>Maybe it's your Dad who strikes out the side to seal the series?</li>
+		<li>Or your Daughter who slams into the wall and holds onto the ball for the final out.</li>
+	</ul>
+	<h3>The possibilities are endless. This is your chance to have a completely customized audio highlight. It'll sound just like a real game.</h3>
+	<h3>Here's how it works:</h3>
+	<ol>
+		<li>Select a plan below that interests you.</li>
+		<li>Fill out the form that follows with all the details.</li>
+		<li>We'll take those details and create a one of a kind highlight.</li>
+		<li>We'll email you when it's ready.</li>
+		<li>Click the link and it's yours to download.</li>
+	</ol>
+	<h3>Buy it as a gift. Buy it for yourself.</h3>
+</div>
+<div class="highlight-types btcf">
+	<ul>
+		<%- HighlightType.all.each do |type| %>
+			<li>
+				<p><%= type.name %></p>
+				<p><%= type.description %></p>
+				<p><%= type.price %></p>
+			</li>
+		<%- end %>
+	</ul>
+</div>
