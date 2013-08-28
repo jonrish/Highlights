@@ -1,0 +1,40 @@
+<%= simple_form_for('user', :url => user_registration_path) do |f| %>
+	<%= f.simple_fields_for :highlights do |h| %>
+		<%= h.input :name, label: 'Player Name' %>
+		<%= h.input :highlight_type_id, value: '1'%>
+	<%- end %>
+  <%= f.input :email, :required => true, :autofocus => true %>
+  <%= f.input :password, :required => true %>
+  <%= f.input :password_confirmation, :required => true %>
+  <%= f.button :submit, "Sign up" %>
+<% end %>
+
+<%= simple_form_for @highlight do |h| %>
+	<%= h.input :name %>
+	<%= h.input :highlight_type_id %>
+	<%= h.input :user_id %>
+	<%= h.button :submit %>
+<%- end %>
+
+
+
+<!-- 
+create_table "highlights", force: true do |t|
+    t.integer  "user_id",           null: false
+    t.integer  "highlight_type_id", null: false
+    t.string   "name",              null: false
+    t.string   "nickname"
+    t.string   "hometown"
+    t.string   "school"
+    t.string   "previous_teams"
+    t.string   "bats"
+    t.string   "throwing_hand"
+    t.string   "position"
+    t.integer  "age"
+    t.string   "family_friends"
+    t.string   "opponent"
+    t.text     "scenario"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end -->
