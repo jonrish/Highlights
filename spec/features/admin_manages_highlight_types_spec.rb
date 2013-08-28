@@ -56,9 +56,9 @@ feature 'admin manages highlight types', %q{
 		visit admin_highlight_types_path
 		click_on('Create A New Highlight Type')
 		expect(current_path).to eql(new_admin_highlight_type_path)
-		fill_in 'Highlight Type Name', with: 'Super Deluxe'
-		fill_in 'Highlight Type Description', with: 'The Kitchen Sink'
-		fill_in 'Highlight Type Price', with: '19.99'
+		fill_in 'highlight_type[name]', with: 'Super Deluxe'
+		fill_in 'highlight_type[description]', with: 'The Kitchen Sink'
+		fill_in 'highlight_type[price]', with: '19.99'
 		check 'Highlight Type Status' 
 		count = HighlightType.all.count
 		click_on 'Submit'

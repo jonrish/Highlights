@@ -4,7 +4,9 @@ class Highlight < ActiveRecord::Base
 	belongs_to :user,
 		inverse_of: :highlights
 
+	accepts_nested_attributes_for :user
+
 	validates_presence_of :name
-	validates_presence_of :user_id
-	validates_presence_of :highlight_type_id
+	# validates_presence_of :user_id
+	# validates_presence_of :highlight_type_id
 end

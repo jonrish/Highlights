@@ -23,7 +23,7 @@
 				<p><%= type.name %></p>
 				<p><%= type.description %></p>
 				<p><%= type.price %></p>
-				<p><%= link_to 'Select This Highlight Type', new_highlight_path %></p>
+				<p><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></p>
 			</li>
 		<%- end %>
 	</ul>
