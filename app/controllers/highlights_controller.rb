@@ -3,7 +3,7 @@ class HighlightsController < ApplicationController
 	def new
 		@highlight = Highlight.new
 		@highlight.build_user unless current_user
-		@highlight_type_id = params[:highlight_type_id]
+		@highlight_type = HighlightType.find(params[:highlight_type_id])
 	end
 
 	def create

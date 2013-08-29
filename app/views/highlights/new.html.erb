@@ -1,13 +1,24 @@
 <%= simple_form_for @highlight do |f| %>
-	<%= f.input :name, label: 'Player Name' %>
-	<%= f.input :highlight_type_id, as: :hidden, input_html: { value: @highlight_type_id } %>
-	<%- unless user_signed_in? %>
+	<%= f.input :name, label: 'Player Name: ' %>
+    <%= f.input :nickname, label: 'Player Nickname: ' %>
+    <%= f.input :hometown, label: 'Player\'s Hometown: ' %>
+    <%= f.input :bats, collection: ['Left', 'Right', 'Switch'], as: :radio, label: 'Player Bats: ' %>
+    <%= f.input :throwing_hand, collection: ['Left', 'Right'], as: :radio, label: 'Player Throws: ' %>
+    <%= f.input :scenario, label: 'Type of play you\'d like. '%>
+	<%= f.input :highlight_type_id, as: :hidden, input_html: { value: @highlight_type.id } %>
+    <%= @highlight_type.name %>
+	<%- if @highlight_type.id > 1 %>
+    <%- end %>
+    <%- if @highlight_type.id > 2 %>
+    <%- end %>
+    <%- unless user_signed_in? %>
 		<%= f.simple_fields_for :user do |user| %>
 			<%= user.input :email, :required => true %>
   		<%= user.input :password, :required => true %>
   		<%= user.input :password_confirmation, :required => true %>
 		<%- end %>
 	<%- end %>
+    <%= f.input :notes, label: 'Any other info: ' %>
 	<%= f.button :submit, 'Create Your Highlight' %>
 <%- end %>
 
