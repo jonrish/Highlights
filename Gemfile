@@ -8,6 +8,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'devise'
 gem 'cancan'
+gem 'jquery-turbolinks'
 
 group :test, :development do
   gem 'pry-rails'
