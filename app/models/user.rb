@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   has_many :highlights,
   	inverse_of: :user
 
+  accepts_nested_attributes_for :highlights 
+
 end
