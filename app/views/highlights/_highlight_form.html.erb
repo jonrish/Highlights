@@ -1,0 +1,34 @@
+<%= simple_form_for @highlight do |f| %>
+    <%= f.input :name, label: 'Player Name: ' %>
+    <%= f.input :nickname, label: 'Player Nickname: ' %>
+    <%= f.input :hometown, label: 'Player\'s Hometown: ' %>
+    <%= f.input :bats, collection: ['Left', 'Right', 'Switch'], as: :radio, label: 'Player Bats: ' %>
+    <%= f.input :throwing_hand, collection: ['Left', 'Right'], as: :radio, label: 'Player Throws: ' %>
+    <%= f.input :highlight_type_id, as: :hidden, input_html: { value: @highlight_type.id } %>
+    <div id="continue"><p>Click Here To Continue</p></div>
+    <div id="step-two" class="hidden">
+      <%= f.input :scenario, label: 'Type of play you\'d like. '%>
+      <%= f.input :position, label: 'Player\'s position: '%>
+      <%- if @highlight_type.id > 1 %>
+        <%= f.input :school, label: 'Where did the player go to school? ' %>
+        <%= f.input :age, label: 'Player Age: ' %>
+      <%- end %>
+      <%- if @highlight_type.id > 2 %>
+        <%= f.input :family_friends, label: 'Names of others you would like referenced: '%>
+        <%= f.input :opponent, label: 'Name(s) of players on the other team: '%>
+      <%- end %>
+      <div id="finish"><p>Click Here To Finish</p></div>
+    </div>
+    <div id="step-three" class="hidden">
+      <%- unless user_signed_in? %>
+        <h3>You must register to finalize your highlight.</h3>
+  		  <%= f.simple_fields_for :user do |user| %>
+  			 <%= user.input :email %>
+    		  <%= user.input :password %>
+    		  <%= user.input :password_confirmation %>
+  		  <%- end %>
+      <%- end %>
+      <%= f.input :notes, label: 'Any other info: ' %>
+      <%= f.button :submit, 'Create Your Highlight' %>
+    </div>
+<%- end %>

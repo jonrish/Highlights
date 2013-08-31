@@ -1,0 +1,24 @@
+<h2>Here are all of your highlight details.</h2>
+
+<ul>
+	<li>Name: <%= @highlight.name %></li>
+	<li>Nickname: <%= @highlight.nickname %></li>
+	<li>Hometown: <%= @highlight.hometown %></li>
+	<li>Bats: <%= @highlight.bats %></li>
+	<li>Throwing Hand: <%= @highlight.throwing_hand %></li>
+	<li>Scenario: <%= @highlight.scenario %></li>
+	<li>Position: <%= @highlight.position %></li>
+	<%- if @highlight.highlight_type_id > 1 %>
+		<li>School: <%= @highlight.age %></li>
+		<li>Age: <%= @highlight.age %></li>
+	<%- end %>
+	<%- if @highlight.highlight_type_id > 2 %>
+		<li>Others to reference: <%= @highlight.family_friends %></li>
+		<li>Name(s) of Opponent: <%= @highlight.opponent %></li>
+	<%- end %>
+	<li>Additional Information: <%= @highlight.notes %></li>
+</ul>
+
+<%= link_to 'Click to make changes', edit_highlight_path(@highlight) %>
+
+<h3>Your Custom Highlight Costs: <%= @highlight.highlight_type.price %></h3>
