@@ -1,12 +1,37 @@
+<h2>You have Chosen a <%= @current_highlight.highlight_type.name %> Highlight.</h2>
+
+<h2>The Total Cost is <%= @current_highlight.highlight_type.price %></h2>
+
+<h2>Here are the details.</h2>
+
+<ul>
+	<li>Name: <%= @current_highlight.name %></li>
+	<li>Nickname: <%= @current_highlight.nickname %></li>
+	<li>Hometown: <%= @current_highlight.hometown %></li>
+	<li>Bats: <%= @current_highlight.bats %></li>
+	<li>Throwing Hand: <%= @current_highlight.throwing_hand %></li>
+	<li>Scenario: <%= @current_highlight.scenario %></li>
+	<li>Position: <%= @current_highlight.position %></li>
+	<%- if @current_highlight.highlight_type_id > 1 %>
+		<li>School: <%= @current_highlight.age %></li>
+		<li>Age: <%= @current_highlight.age %></li>
+	<%- end %>
+	<%- if @current_highlight.highlight_type_id > 2 %>
+		<li>Others to reference: <%= @current_highlight.family_friends %></li>
+		<li>Name(s) of Opponent: <%= @current_highlight.opponent %></li>
+	<%- end %>
+	<li>Additional Information: <%= @current_highlight.notes %></li>
+</ul>
+
+<%= link_to 'Click to make changes', edit_highlight_path(@current_highlight) %>
+
+<h3>Your Custom Highlight Costs: <%= @current_highlight.highlight_type.price %></h3>
+
 <%= form_tag charges_path do %>
-  <article>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"></script>
+          data-description="<%= @current_highlight.highlight_type.name %> Highlight"
+          data-amount="<%= @current_highlight.highlight_type.price %>"></script>
+
 <% end %>

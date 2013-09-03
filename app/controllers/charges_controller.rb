@@ -1,11 +1,13 @@
 class ChargesController < ApplicationController
 
 	def new
+		@current_highlight = current_user.highlights.last
 	end
 
 	def create
 	  # Amount in cents
-	  @amount = 500
+	  @amount = current_user.highlights.last.highlight_type.price
+
 
 	  customer = Stripe::Customer.create(
 	    :email => 'example@stripe.com',
@@ -19,9 +21,10 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
-	rescue Stripe::CardError => e
-	  flash[:error] = e.message
-	  redirect_to charges_path
-end
+		rescue Stripe::CardError => e
+	  	flash[:error] = e.message
+	  	redirect_to charges_path
+
+	end
 
 end
