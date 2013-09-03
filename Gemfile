@@ -9,6 +9,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 gem 'jquery-turbolinks'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 
 group :test, :development do
   gem 'pry-rails'
