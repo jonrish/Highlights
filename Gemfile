@@ -11,6 +11,7 @@ gem 'cancan'
 gem 'jquery-turbolinks'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
+gem 'state_machine'
 
 group :test, :development do
   gem 'pry-rails'

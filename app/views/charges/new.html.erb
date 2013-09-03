@@ -1,7 +1,5 @@
 <h2>You have Chosen a <%= @current_highlight.highlight_type.name %> Highlight.</h2>
 
-<h2>The Total Cost is <%= @current_highlight.highlight_type.price %></h2>
-
 <h2>Here are the details.</h2>
 
 <ul>
@@ -25,7 +23,7 @@
 
 <%= link_to 'Click to make changes', edit_highlight_path(@current_highlight) %>
 
-<h3>Your Custom Highlight Costs: <%= @current_highlight.highlight_type.price %></h3>
+<h3>Your Custom Highlight Costs: <%= number_to_currency(@current_highlight.highlight_type.price * 0.01) %></h3>
 
 <%= form_tag charges_path do %>
 
