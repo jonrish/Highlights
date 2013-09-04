@@ -36,6 +36,12 @@ class HighlightsController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def destroy
+		@highlight = Highlight.find(params[:id])
+		@highlight.destroy
+		redirect_to root_path, notice: 'Highlight Deleted / Order Cancelled'
+	end
 	
 	private
 

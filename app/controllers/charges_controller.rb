@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-	  # Amount in cents
 	  @current_highlight = current_user.highlights.last
 	  @amount = @current_highlight.highlight_type.price
 
