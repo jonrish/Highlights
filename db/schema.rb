@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828010741) do
+ActiveRecord::Schema.define(version: 20130903200826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "highlight_types", force: true do |t|
-    t.string   "name",                                               null: false
-    t.string   "description",                                        null: false
-    t.decimal  "price",       precision: 8, scale: 2,                null: false
-    t.boolean  "active",                              default: true
+    t.string   "name",                       null: false
+    t.string   "description",                null: false
+    t.integer  "price",                      null: false
+    t.boolean  "active",      default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20130828010741) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state"
   end
 
   add_index "highlights", ["highlight_type_id"], name: "index_highlights_on_highlight_type_id", using: :btree

@@ -19,10 +19,10 @@
 <div class="highlight-types btcf">
 	<ul>
 		<%- HighlightType.all.each do |type| %>
-			<li>
+			<li id="<%= type.name %>">
 				<p><%= type.name %></p>
 				<p><%= type.description %></p>
-				<p><%= type.price %></p>
+				<p><%= number_to_currency(type.price * 0.01) %></p>
 				<p><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></p>
 			</li>
 		<%- end %>

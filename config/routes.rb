@@ -5,6 +5,8 @@ Highlights3::Application.routes.draw do
 
   resources :highlights
 
+  resources :charges
+
   namespace :admin do
     resources :users
     resources :highlight_types

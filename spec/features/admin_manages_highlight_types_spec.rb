@@ -58,7 +58,7 @@ feature 'admin manages highlight types', %q{
 		expect(current_path).to eql(new_admin_highlight_type_path)
 		fill_in 'highlight_type[name]', with: 'Super Deluxe'
 		fill_in 'highlight_type[description]', with: 'The Kitchen Sink'
-		fill_in 'highlight_type[price]', with: '19.99'
+		fill_in 'highlight_type[price]', with: '2500'
 		check 'Highlight Type Status' 
 		count = HighlightType.all.count
 		click_on 'Submit'

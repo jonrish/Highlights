@@ -1,4 +1,17 @@
 class Highlight < ActiveRecord::Base
+	state_machine :initial => :pending do
+		state :pending
+		state :processing
+
+		event :paid do
+			transition :pending => :processing
+		end
+
+		event :stripe_error do
+			transition :processing => :pending
+		end
+	end
+
 	belongs_to :highlight_type,
 		inverse_of: :highlights
 	belongs_to :user,
@@ -7,6 +20,4 @@ class Highlight < ActiveRecord::Base
 	accepts_nested_attributes_for :user
 
 	validates_presence_of :name
-	# validates_presence_of :user_id
-	# validates_presence_of :highlight_type_id
 end

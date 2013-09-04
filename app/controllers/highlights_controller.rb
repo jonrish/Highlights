@@ -16,7 +16,7 @@ class HighlightsController < ApplicationController
 
 		if @highlight.save
 			sign_in @highlight.user
-			redirect_to highlight_path(@highlight), notice: 'Highlight Created'
+			redirect_to new_charge_path, notice: 'Highlight Created'
 		else
 			redirect_to new_highlight_path
 		end
@@ -31,10 +31,16 @@ class HighlightsController < ApplicationController
 		@highlight = Highlight.find(params[:id])
 
 		if @highlight.update(highlight_params)
-			redirect_to highlight_path(@highlight), notice: 'Highlight Updated'
+			redirect_to new_charge_path, notice: 'Highlight Updated'
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@highlight = Highlight.find(params[:id])
+		@highlight.destroy
+		redirect_to root_path, notice: 'Highlight Deleted / Order Cancelled'
 	end
 	
 	private
