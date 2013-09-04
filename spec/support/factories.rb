@@ -13,4 +13,10 @@ FactoryGirl.define do
     active true
   end
 
+  factory :highlight do
+    name 'Joe'
+    highlight_type
+    user
+  end
+
 end

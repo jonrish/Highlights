@@ -10,7 +10,14 @@ Highlights3::Application.routes.draw do
   namespace :admin do
     resources :users
     resources :highlight_types
-    resources :highlights
+    resources :highlights do
+      member do
+        post 'accept'
+        post 'in_production'
+        post 'complete'
+        post 'reset'
+      end
+    end
   end
 
   root 'home#index'
