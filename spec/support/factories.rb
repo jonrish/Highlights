@@ -9,7 +9,7 @@ FactoryGirl.define do
   factory :highlight_type do
   	name 'Basic'
   	description 'Just the basics'
-  	price '19.99'
+  	price '1500'
     active true
   end
 
