@@ -19,7 +19,7 @@
 <div class="highlight-types btcf">
 	<ul>
 		<%- HighlightType.all.each do |type| %>
-			<li>
+			<li id="<%= type.name %>">
 				<p><%= type.name %></p>
 				<p><%= type.description %></p>
 				<p><%= number_to_currency(type.price * 0.01) %></p>
