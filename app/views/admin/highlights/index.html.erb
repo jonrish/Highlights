@@ -1,7 +1,7 @@
 <%- @highlights.each do |highlight| %>
 	<p>
 		<%= highlight.user.email %>
-		<%= highlight.created_at %>
+		<%= highlight.created_at.strftime("%Y-%m-%d") %>
 		<%= highlight.highlight_type.name %>
 		<%= highlight.state %>
 		<%= link_to 'Manage Highlight', admin_highlight_path(highlight) %>

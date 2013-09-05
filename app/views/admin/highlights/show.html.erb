@@ -15,7 +15,7 @@
 	<li><%= @highlight.opponent %></li>
 	<li><%= @highlight.scenario %></li>
 	<li><%= @highlight.notes %></li>
-	<li><%= @highlight.created_at %></li>
+	<li><%= @highlight.created_at.strftime("%Y-%m-%d") %></li>
 	<li><%= @highlight.state %></li>
 </ul>
 
@@ -28,3 +28,5 @@
 <%- end %>
 
 <%= button_to 'Reset to Processing', action: 'reset' %>
+
+<%= button_to 'Delete Highlight', [:admin, @highlight], method: :delete, data: { confirm: "Are you sure?" }%>
