@@ -3,6 +3,8 @@ Highlights3::Application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: :show
+
   resources :highlights
 
   resources :charges

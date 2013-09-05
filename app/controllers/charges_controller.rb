@@ -22,11 +22,11 @@ class ChargesController < ApplicationController
 	  )
 
 	  @current_highlight.paid
+		AdminMailer.new_order_email(@current_highlight).deliver
+		UserMailer.processing_email(current_user).deliver
 
-		rescue Stripe::CardError => e
-	  	# flash[:error] = e.message
-	  	@current_highlight.stripe_error
-	  	redirect_to new_charge_path, notice: e.message
+			rescue Stripe::CardError => e
+		  	redirect_to new_charge_path, notice: e.message
 
 	end
 

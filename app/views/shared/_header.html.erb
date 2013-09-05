@@ -3,7 +3,7 @@
 		<ul>
 			<%- if user_signed_in? %>
 				<li>Signed in as <%= current_user.email %></li>
-				<li><button>My Account</button></li>
+				<li><button><%= link_to 'My Account', user_path(current_user) %></button></li>
 				<li><button><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button></li>
 			<%- else %>
 				<li><button><%= link_to 'Sign In', new_user_session_path %></button></li>
