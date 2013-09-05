@@ -8,7 +8,7 @@ feature 'an admin manages highlights(orders)' do
 		sign_in_as(highlight.user)
 		visit admin_highlights_path
 		expect(page).to have_content(highlight.user.email)
-		expect(page).to have_content(highlight.created_at)
+		expect(page).to have_content(highlight.created_at.strftime("%Y-%m-%d"))
 		expect(page).to have_content(highlight.highlight_type.name)
 	end
 
@@ -22,7 +22,6 @@ feature 'an admin manages highlights(orders)' do
 	scenario 'admin changes highlight states' do
 		sign_in_as(highlight.user)
 		visit admin_highlight_path(highlight)
-		click_on 'Reset to Processing'
 		click_on 'Accept Highlight'
 		expect(page).to have_content('State Changed')
 		expect(highlight.state).to eql('accepted')

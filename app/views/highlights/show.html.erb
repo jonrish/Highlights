@@ -19,8 +19,8 @@
 	<li>Additional Information: <%= @highlight.notes %></li>
 </ul>
 
-<%= link_to 'Click to make changes', edit_highlight_path(@highlight) %>
+<%- if @highlight.state == 'pending' %>
+	<%= link_to 'Click to make changes', edit_highlight_path(@highlight) %>
+<%- end %>
 
-<h3>Your Custom Highlight Costs: <%= @highlight.highlight_type.price %></h3>
-
-
+<h3>Your Custom Highlight Costs: <%= number_to_currency(@highlight.highlight_type.price * 0.01) %></h3>

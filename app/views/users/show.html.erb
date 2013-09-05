@@ -1,1 +1,14 @@
-<h1>user show</h1>
+<h3><%= @user.email %></h3>
+
+<h2><button><%= link_to 'Change Email or Password', edit_user_registration_path(@user) %></button></h2>
+
+<%- @user.highlights.each do |highlight| %>
+	<ul>
+		<li><%= highlight.name %></li>
+		<li><%= highlight.highlight_type.name %></li>
+		<li><%= highlight.created_at.strftime("%Y-%m-%d") %></li>
+		<li><%= highlight.state %></li>
+		<li><button><%= link_to 'Highlight Details', highlight_path(highlight) %></button></li>
+	</ul>
+<%- end %>
+
