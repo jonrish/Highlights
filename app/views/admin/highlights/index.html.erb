@@ -1,0 +1,9 @@
+<%- @highlights.each do |highlight| %>
+	<p>
+		<%= highlight.user.email %>
+		<%= highlight.created_at %>
+		<%= highlight.highlight_type.name %>
+		<%= highlight.state %>
+		<%= link_to 'Manage Highlight', admin_highlight_path(highlight) %>
+	</p>
+<%- end %>
