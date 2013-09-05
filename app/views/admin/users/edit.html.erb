@@ -1,0 +1,9 @@
+<h3>User Id: <%= @user.id %></h3>
+<h3>User Email: <%= @user.email %></h3>
+
+<%= simple_form_for [:admin, @user] do |f| %>
+	<%= f.input :admin, as: :select, label: 'User Admin?' %>
+	<%= f.submit 'Update User' %>
+<%- end %>
+
+<%= link_to 'Delete This User', [:admin, @user], method: :delete, data: { confirm: "Are you sure?" } %>
