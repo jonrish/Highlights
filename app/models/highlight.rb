@@ -1,4 +1,5 @@
 class Highlight < ActiveRecord::Base
+
 	state_machine :initial => :pending do
 		state :pending
 		state :processing
@@ -10,11 +11,7 @@ class Highlight < ActiveRecord::Base
 			transition :pending => :processing
 		end
 
-		event :stripe_error do
-			transition :processing => :pending
-		end
-
-		event :accept_order do
+		event :accept do
 			transition :processing => :accepted
 		end
 
@@ -26,10 +23,25 @@ class Highlight < ActiveRecord::Base
 			transition :in_production => :complete
 		end
 
-		# temp for testing
 		event :reset do
 			transition [:complete, :in_production, :accepted, :pending] => :processing
 		end
+
+		after_transition :to => :accepted,  :do => :accepted
+		after_transition :to => :in_production,  :do => :in_production
+		after_transition :to => :complete, :do => :complete
+	end
+
+	def accepted
+		UserMailer.accepted_email(self.user).deliver
+	end
+
+	def in_production
+		UserMailer.production_email(self.user).deliver
+	end
+
+	def complete
+		UserMailer.complete_email(self.user).deliver
 	end
 
 	belongs_to :highlight_type,
@@ -40,4 +52,5 @@ class Highlight < ActiveRecord::Base
 	accepts_nested_attributes_for :user
 
 	validates_presence_of :name
+
 end

@@ -8,31 +8,16 @@ class Admin::HighlightsController < ApplicationController
 		@highlight = Highlight.find(params[:id])
 	end
 
-	def accept
+	def edit
 		@highlight = Highlight.find(params[:id])
-		@highlight.accept_order
-		UserMailer.accepted_email(@highlight.user).deliver
-		redirect_to admin_highlight_path(@highlight), notice: 'State Changed'
 	end
 
-	def in_production
+	def update
 		@highlight = Highlight.find(params[:id])
-		@highlight.start_production
-		UserMailer.production_email(@highlight.user).deliver
-		redirect_to admin_highlight_path(@highlight), notice: 'State Changed'
-	end
 
-	def complete
-		@highlight = Highlight.find(params[:id])
-		@highlight.complete
-		UserMailer.complete_email(@highlight.user).deliver
-		redirect_to admin_highlight_path(@highlight), notice: 'State Changed'
-	end
-
-	def reset
-		@highlight = Highlight.find(params[:id])
-		@highlight.reset
-		redirect_to admin_highlight_path(@highlight), notice: 'State Changed'
+		if @highlight.update(highlight_params)
+			redirect_to admin_highlight_path(@highlight), notice: 'State Changed'	
+		end
 	end
 
 	def destroy
@@ -41,5 +26,11 @@ class Admin::HighlightsController < ApplicationController
 
 		redirect_to admin_highlights_path, notice: 'Highlight Deleted'
 	end
+
+	private
+
+		def highlight_params
+			params.require(:highlight).permit(:state_event)
+		end
 
 end

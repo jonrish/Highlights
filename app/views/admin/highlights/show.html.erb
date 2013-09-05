@@ -19,14 +19,20 @@
 	<li><%= @highlight.state %></li>
 </ul>
 
-<%- if @highlight.state == 'processing' %>
-	<%= button_to 'Accept Highlight', action: 'accept' %>
-<%- elsif @highlight.state == 'accepted' %>
-	<%= button_to 'Start Production', action: 'in_production' %>
-<%- elsif @highlight.state == 'in_production' %>
-	<%= button_to 'Complete Highlight', action: 'complete' %>
+<%= simple_form_for [:admin, @highlight] do |f| %>
+	<%- if @highlight.state == 'processing' %>
+		<%= f.input :state_event, as: :hidden, input_html: { value: 'accept' } %>
+		<%= f.submit 'Accept Highlight' %>
+	<%- elsif @highlight.state == 'accepted' %>
+		<%= f.input :state_event, as: :hidden, input_html: { value: 'start_production' } %>
+		<%= f.submit 'Start Production' %>
+	<%- elsif @highlight.state == 'in_production' %>
+		<%= f.input :state_event, as: :hidden, input_html: { value: 'complete' } %>
+		<%= f.submit 'Complete Highlight' %>
+	<%- elsif @highlight.state == 'complete' %>
+		<%= f.input :state_event, as: :hidden, input_html: { value: 'reset' } %>
+		<%= f.submit 'Reset to Processing' %>
+	<%- end %>
 <%- end %>
-
-<%= button_to 'Reset to Processing', action: 'reset' %>
 
 <%= button_to 'Delete Highlight', [:admin, @highlight], method: :delete, data: { confirm: "Are you sure?" }%>
