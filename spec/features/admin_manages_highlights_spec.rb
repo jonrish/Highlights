@@ -25,7 +25,7 @@ feature 'an admin manages highlights(orders)' do
 		click_on 'Reset to Processing'
 		click_on 'Accept Highlight'
 		expect(page).to have_content('State Changed')
-		expect(high.state).to eql('accepted')
+		expect(highlight.state).to eql('accepted')
 	end
 
 

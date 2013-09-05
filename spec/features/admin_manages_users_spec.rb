@@ -43,4 +43,13 @@ feature 'admin manages users' do
 		expect(highlight_2.user.admin).to eql(false)
 	end
 
+	scenario 'admin deletes a user' do
+		sign_in_as(highlight_1.user)
+		count = User.count
+		visit edit_admin_user_path(highlight_2.user)
+		click_on 'Delete This User'
+		expect(User.count).to eql(count -1)
+		expect(current_path).to eql(admin_users_path)
+	end
+
 end
