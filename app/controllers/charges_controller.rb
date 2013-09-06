@@ -22,8 +22,8 @@ class ChargesController < ApplicationController
 	  )
 
 	  @current_highlight.paid
-		AdminMailer.new_order_email(@current_highlight).deliver
-		UserMailer.processing_email(current_user).deliver
+		AdminMailer.delay.new_order_email(@current_highlight)
+		UserMailer.delay.processing_email(current_user)
 
 			rescue Stripe::CardError => e
 		  	redirect_to new_charge_path, notice: e.message

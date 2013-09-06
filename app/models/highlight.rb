@@ -33,15 +33,15 @@ class Highlight < ActiveRecord::Base
 	end
 
 	def accepted
-		UserMailer.accepted_email(self.user).deliver
+		UserMailer.delay.accepted_email(self.user)
 	end
 
 	def in_production
-		UserMailer.production_email(self.user).deliver
+		UserMailer.delay.production_email(self.user)
 	end
 
 	def complete
-		UserMailer.complete_email(self.user).deliver
+		UserMailer.delay.complete_email(self.user)
 	end
 
 	belongs_to :highlight_type,

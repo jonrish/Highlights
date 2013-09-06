@@ -12,6 +12,7 @@ gem 'jquery-turbolinks'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
 gem 'state_machine'
+gem 'delayed_job_active_record'
 
 group :test, :development do
   gem 'pry-rails'
