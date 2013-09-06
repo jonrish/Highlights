@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'state_machine'
 gem 'delayed_job_active_record'
 gem 'carrierwave'
+gem "fog", "~> 1.3.1"
 
 group :test, :development do
   gem 'pry-rails'

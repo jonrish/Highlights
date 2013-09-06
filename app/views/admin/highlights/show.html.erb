@@ -17,7 +17,9 @@
 	<li><%= @highlight.notes %></li>
 	<li><%= @highlight.created_at.strftime("%Y-%m-%d") %></li>
 	<li><%= @highlight.state %></li>
-	<li><%= link_to 'Highlight', @highlight.highlight_file.url %></li>
+	<%- unless @highlight.highlight_file.blank? %>
+		<li><%= link_to 'Highlight', @highlight.highlight_file.url %></li>
+	<%- end %>
 </ul>
 
 <%= simple_form_for [:admin, @highlight] do |f| %>
