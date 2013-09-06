@@ -1,5 +1,7 @@
 class Highlight < ActiveRecord::Base
 
+	mount_uploader :highlight_file, HighlightFileUploader
+
 	state_machine :initial => :pending do
 		state :pending
 		state :processing

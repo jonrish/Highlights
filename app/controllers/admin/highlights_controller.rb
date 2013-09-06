@@ -30,7 +30,7 @@ class Admin::HighlightsController < ApplicationController
 	private
 
 		def highlight_params
-			params.require(:highlight).permit(:state_event)
+			params.require(:highlight).permit(:state_event, :highlight_file)
 		end
 
 end
