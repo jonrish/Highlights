@@ -17,6 +17,9 @@
 	<li><%= @highlight.notes %></li>
 	<li><%= @highlight.created_at.strftime("%Y-%m-%d") %></li>
 	<li><%= @highlight.state %></li>
+	<%- unless @highlight.highlight_file.blank? %>
+		<li><%= link_to 'Highlight', @highlight.highlight_file.url %></li>
+	<%- end %>
 </ul>
 
 <%= simple_form_for [:admin, @highlight] do |f| %>
@@ -28,9 +31,11 @@
 		<%= f.submit 'Start Production' %>
 	<%- elsif @highlight.state == 'in_production' %>
 		<%= f.input :state_event, as: :hidden, input_html: { value: 'complete' } %>
+		<%= f.input :highlight_file, as: :file %>
 		<%= f.submit 'Complete Highlight' %>
 	<%- elsif @highlight.state == 'complete' %>
 		<%= f.input :state_event, as: :hidden, input_html: { value: 'reset' } %>
+		<%= f.input :highlight_file, as: :file %>
 		<%= f.submit 'Reset to Processing' %>
 	<%- end %>
 <%- end %>
