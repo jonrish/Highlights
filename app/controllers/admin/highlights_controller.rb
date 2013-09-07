@@ -1,4 +1,6 @@
 class Admin::HighlightsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :is_admin?
 
 	def index
 		@highlights = Highlight.all

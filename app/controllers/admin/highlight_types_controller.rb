@@ -1,5 +1,6 @@
 class Admin::HighlightTypesController < ApplicationController
-	authorize_resource
+	before_action :authenticate_user!
+	before_action :is_admin?
 
 	def index
 		@highlight_types = HighlightType.all
