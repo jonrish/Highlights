@@ -13,6 +13,9 @@
 						<li><%= highlight.created_at.strftime("%Y-%m-%d") %></li>
 						<li><%= highlight.state %></li>
 						<li><%= link_to 'Highlight Details', admin_highlight_path(highlight) %></li>
+						<%- unless highlight.highlight_file.blank? %>
+							<li><%= link_to 'Highlight', highlight.highlight_file.url %></li>
+						<%- end %>
 					</ul>
 				</li>
 			<%- end %>

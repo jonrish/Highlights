@@ -17,6 +17,10 @@
 		<li>Name(s) of Opponent: <%= @highlight.opponent %></li>
 	<%- end %>
 	<li>Additional Information: <%= @highlight.notes %></li>
+	<li>Status of your highlight order: <%= @highlight.state %></li>
+	<%- unless @highlight.highlight_file.blank? %>
+		<li><%= link_to 'Highlight', @highlight.highlight_file.url %></li>
+	<%- end %>
 </ul>
 
 <%- if @highlight.state == 'pending' %>

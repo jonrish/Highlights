@@ -19,6 +19,7 @@
 		<li>Name(s) of Opponent: <%= @current_highlight.opponent %></li>
 	<%- end %>
 	<li>Additional Information: <%= @current_highlight.notes %></li>
+	<li>Highlight Status: <%= @current_highlight.state %></li>
 </ul>
 
 <p><%= link_to 'Click to make changes', edit_highlight_path(@current_highlight) %></p>
