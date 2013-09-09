@@ -1,4 +1,5 @@
 body {
+	font-family: 'Merriweather', serif;
 	min-width: 320px;
 	width: 100%;
 	margin: 0;
@@ -18,9 +19,52 @@ a {
 	display: none;
 }
 
-header, nav	{
+header {
 	width: 100%;
-	.header-content, .admin-nav-content {
+	background: url('petco_outfield_grass.png') no-repeat;
+	background-size: cover;
+	.header-content {
+		width: 80%;
+		height: 7em;
+		margin: 0 auto;
+		img {
+			height: 6em;
+			float: left;
+			margin: .5em 1em .5em 0;
+		}
+		h1 {
+			float: left;
+			font-size: 2.5em;
+			font-style: italic;
+			margin: .75em 0;
+			color: rgb(170, 3, 3);
+			a:visited {
+				color: rgb(170, 3, 3);
+			}
+		}
+		ul {
+			list-style: none;
+			float: right;
+			li {
+				display: inline-block;
+				color: rgb(12, 47, 183);
+				button {
+					background: url('bat_background.png');
+					background-size: cover;
+					border-radius: 1em;
+					a {
+						color: black;
+						font-size: 2em;
+					}
+				}
+			}
+		}
+	}
+}
+
+nav	{
+	width: 100%;
+	.admin-nav-content {
 		width: 80%;
 		margin: 0 auto;
 		ul {
@@ -30,20 +74,25 @@ header, nav	{
 				display: inline-block;
 			}
 		}
-		h1 {
-			float: left;
-		}
 	}
 }
 
 nav .admin-nav-content ul {
 	float: left;
+	li button:hover {
+		@include transform(translateY(20px));
+		@include transform(scale(1.3));
+		@include transition-property (transform);
+		@include transition-duration(0.3s);
+		// @include transition-timing-function(ease-in);
+		// @include transition-delay(0.5s);
+	}
 }
 
 .main-container {
 	max-width: 1200px;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0 auto 4em auto;
 }
 
 .content {
@@ -53,19 +102,41 @@ nav .admin-nav-content ul {
 .highlight-types {
 	ul {
 		margin: 0;
-
 		li {
+			background: url('old_baseball.png') no-repeat;
+			background-size: contain;
+			background-position: center;
 			float: left;
 			display: inline-block;
 			width: 31%;
 			margin: 0 1.16666%;
+			text-align: center;
+			font-weight: 600;
+			font-size: 2em;
+			color: rgb(2, 8, 73);
+			button {
+				width: 60%;
+				border-radius: 1em;
+				background-color: rgba(247, 128, 128, .4);
+				a {
+					font-size: 1.5em;
+				}
+			}
+			a:visited {
+				color: rgb(12, 47, 183);
+
+			}
 		}
 	}
 }
 
 footer {
+	@include clearfix;
+	background-color: rgb(74, 119, 122);
 	width: 100%;
-	height: 10em;
+	height: 3em;
+	position: fixed;
+	bottom: 0;
 	.footer-content {
 		width: 80%;
 		margin: 0 auto;

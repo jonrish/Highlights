@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Highlights3</title>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -14,10 +15,10 @@
 	<%= render "shared/admin_nav" %>
 <%- end %>
 
-<h1><%= notice %><%= alert %></h1>
-
 <div class="main-container">
 	<div class="content">
+
+	<h1><%= notice %><%= alert %></h1>
 
 <%= yield %>
 
