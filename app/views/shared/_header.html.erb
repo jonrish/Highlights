@@ -1,5 +1,7 @@
 <header>
 	<div class="header-content btcf">
+		<%= image_tag 'old_baseball.png' %>
+		<h1><%= link_to 'You Make The Play!', root_path %></h1>
 		<ul>
 			<%- if user_signed_in? %>
 				<li>Signed in as <%= current_user.email %></li>
@@ -9,6 +11,5 @@
 				<li><button><%= link_to 'Sign In', new_user_session_path %></button></li>
 			<%- end %>
 		</ul>
-		<h1><%= link_to 'You Make The Play!', root_path %></h1>
 	</div>
 </header>
