@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 
 	def new
 		@current_highlight = current_user.highlights.last
+		@highlight_type = @current_highlight.highlight_type
 	end
 
 	def create
