@@ -16,6 +16,8 @@ gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem 'bourbon'
 
+gem 'rails_12factor', group: :production
+
 group :test, :development do
   gem 'pry-rails'
 end
