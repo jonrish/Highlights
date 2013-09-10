@@ -49,7 +49,7 @@ header {
 				display: inline-block;
 				color: rgb(12, 47, 183);
 				button {
-					background: url('bat_background.png');
+					background: url(image_path('bat_background.png'));
 					background-size: cover;
 					border-radius: 1em;
 					a {
@@ -103,7 +103,7 @@ nav .admin-nav-content ul {
 	ul {
 		margin: 0;
 		li {
-			background: url('old_baseball.png') no-repeat;
+			background: url(image_path('old_baseball.png')) no-repeat;
 			background-size: contain;
 			background-position: center;
 			float: left;
