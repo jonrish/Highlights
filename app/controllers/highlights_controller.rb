@@ -4,7 +4,8 @@ class HighlightsController < ApplicationController
 	before_action :edit_highlight?, only: [:edit, :update, :destroy]
 
 	def show
-		@highlight = Highlight.find(params[:id])
+		@highlight = current_user.highlights.find(params[:id])
+		@highlight_type = @highlight.highlight_type
 	end
 
 	def new
@@ -26,7 +27,7 @@ class HighlightsController < ApplicationController
 	end
 
 	def edit
-		@highlight = Highlight.find(params[:id])
+		@highlight = current_user.highlights.find(params[:id])
 		@highlight_type = HighlightType.find(@highlight.highlight_type_id)
 	end
 
@@ -41,7 +42,7 @@ class HighlightsController < ApplicationController
 	end
 
 	def destroy
-		@highlight = Highlight.find(params[:id])
+		@highlight = current_user.highlights.find(params[:id])
 		@highlight.destroy
 		redirect_to root_path, notice: 'Highlight Deleted / Order Cancelled'
 	end
