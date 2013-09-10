@@ -21,8 +21,7 @@ a {
 
 header {
 	width: 100%;
-	background-image: url('/assets/petco_outfield_grass.png');
-	background-repeat: no-repeat;
+	background: url('/assets/petco_outfield_grass.png') no-repeat;
 	background-size: cover;
 	.header-content {
 		width: 80%;
