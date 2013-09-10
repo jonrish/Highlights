@@ -22,13 +22,12 @@
 	<li>Highlight Status: <%= @current_highlight.state %></li>
 </ul>
 
-<p><%= link_to 'Click to make changes', edit_highlight_path(@current_highlight) %></p>
-
 <%- if @current_highlight.state == 'pending' %>
+	<p><%= link_to 'Click to make changes', edit_highlight_path(@current_highlight) %></p>
 	<p><%= link_to 'Cancel / Delete This Highlight', @current_highlight, method: :delete, data: { confirm: "Are you sure?" } %></p>
 <%- end %>
 
-<h3>Your Custom Highlight Costs: <%= number_to_currency(@current_highlight.highlight_type.price * 0.01) %></h3>
+<h3>Your Custom Highlight Costs: <%= number_to_currency(@highlight_type.price * 0.01) %></h3>
 
 <%= form_tag charges_path do %>
 

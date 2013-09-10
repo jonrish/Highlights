@@ -2,7 +2,7 @@
 
 <h2><button><%= link_to 'Change Email or Password', edit_user_registration_path(@user) %></button></h2>
 
-<%- @user.highlights.each do |highlight| %>
+<%- @highlights.each do |highlight| %>
 	<ul>
 		<li><%= highlight.name %></li>
 		<li><%= highlight.highlight_type.name %></li>

@@ -18,7 +18,7 @@
 </div>
 <div class="highlight-types btcf">
 	<ul>
-		<%- HighlightType.all.each do |type| %>
+		<%- @highlight_types.each do |type| %>
 			<li id="<%= type.name %>">
 				<p><%= type.name %></p>
 				<p><%= type.description %></p>
