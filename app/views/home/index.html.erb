@@ -16,6 +16,8 @@
 	</ol>
 	<h3>Buy it as a gift. Buy it for yourself.</h3>
 </div>
+</div>
+</div>
 <div class="highlight-types btcf">
 	<ul>
 		<%- @highlight_types.each do |type| %>
@@ -23,7 +25,7 @@
 				<p><%= type.name %></p>
 				<p><%= type.description %></p>
 				<p><%= number_to_currency(type.price * 0.01) %></p>
-				<p><button><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></button></p>
+				<button><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></button>
 			</li>
 		<%- end %>
 	</ul>
