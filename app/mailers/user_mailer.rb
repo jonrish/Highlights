@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "jon@youmaketheplay.com"
+  default from: "user@jonrish.mailgun.org"
 
   def processing_email(user)
   	@user = user

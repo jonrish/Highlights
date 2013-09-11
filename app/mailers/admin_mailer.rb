@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "me@youmaketheplay.com"
+  default from: "user@jonrish.mailgun.org"
 
   def new_order_email(highlight)
   	@highlight = highlight
