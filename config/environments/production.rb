@@ -6,7 +6,7 @@ Highlights3::Application.configure do
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'jonrish.mailgun.org',
+  :domain         => 'app18042297.mailgun.org',
   :authentication => :plain,
 }
 ActionMailer::Base.delivery_method = :smtp
