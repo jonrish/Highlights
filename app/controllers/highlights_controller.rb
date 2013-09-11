@@ -1,6 +1,5 @@
 class HighlightsController < ApplicationController
 	before_action :authenticate_user!, except: [:new, :create]
-	# before_action :correct_highlight?, except: [:new, :create]
 	before_action :edit_highlight?, only: [:edit, :update, :destroy]
 
 	def show
@@ -52,11 +51,6 @@ class HighlightsController < ApplicationController
 		def highlight_params
 			params.require(:highlight).permit(:name, :highlight_type_id, :nickname, :hometown, :school, :previous_teams, :bats, :throwing_hand, :position, :age, :family_friends, :opponent, :scenario, :notes, user_attributes: [:email, :password, :password_confirmation])
 		end
-
-		# def correct_highlight?
-		# 	@highlight = Highlight.find(params[:id])
-		# 	redirect_to root_path, notice: 'You are not authorized to view that page.' unless current_user.id == @highlight.user_id
-		# end
 
 		def edit_highlight?
 			@highlight = Highlight.find(params[:id])
