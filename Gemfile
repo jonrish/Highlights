@@ -12,6 +12,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
 gem 'state_machine'
 gem 'delayed_job_active_record'
+gem 'hirefire'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem 'bourbon'
