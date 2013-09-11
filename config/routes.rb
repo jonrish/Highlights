@@ -1,5 +1,6 @@
 Highlights3::Application.routes.draw do
   get 'home/index'
+  get 'home/about_us'
 
   devise_for :users
 

@@ -1,6 +1,8 @@
 <footer>
 	<div class="footer-content">
-		<button>Contact Us</button>
-		<button>About Us</button>
+		<ul>
+			<li class="contact">Feel free to contact us for any reason: <%= mail_to 'postmaster@app18042297.mailgun.org' %>.</li>
+			<li class="about"><button><%= link_to 'About Us', home_about_us_path %></button></li>
+		</ul>
 	</div>
 </footer>

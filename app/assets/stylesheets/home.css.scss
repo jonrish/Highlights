@@ -147,11 +147,29 @@ footer {
 	@include clearfix;
 	background-color: rgb(74, 119, 122);
 	width: 100%;
-	height: 3em;
+	height: 6em;
 	position: fixed;
 	bottom: 0;
 	.footer-content {
 		width: 80%;
 		margin: 0 auto;
+		ul li {
+			display: inline-block;
+			list-style: none;
+		}
+		li.contact {
+			float: left;
+			font-size: 1.4em;
+			a {
+				font-size: 1em;
+				color: rgb(170, 3, 3);
+			}
+		}
+		.about {
+			float: right;
+			a {
+				font-size: 2em;
+			}
+		}
 	}
 }
