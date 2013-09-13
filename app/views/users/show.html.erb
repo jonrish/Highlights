@@ -1,21 +1,31 @@
 <div class='user-show'>
 
-	<h3><%= @user.email %></h3>
+	<h2><%= @user.email %></h2>
 
-	<h2><button><%= link_to 'Change Email or Password', edit_user_registration_path(@user) %></button></h2>
+	<button><%= link_to 'Change Email or Password', edit_user_registration_path(@user) %></button>
 
-	<%- @highlights.each do |highlight| %>
-		<ul>
-			<li><%= highlight.name %></li>
-			<li><%= highlight.highlight_type.name %></li>
-			<li><%= highlight.created_at.strftime("%Y-%m-%d") %></li>
-			<li><%= highlight.state %></li>
-			<li><button><%= link_to 'Highlight Details', highlight_path(highlight) %></button></li>
-			<%- unless highlight.highlight_file.blank? %>
-				<li><%= link_to 'Highlight', highlight.highlight_file.url %></li>
-			<%- end %>
-		</ul>
-	<%- end %>
+	<h2>Your Personal Highlights</h2>
+
+	<table>
+		<th>Player's Name</th>
+		<th>Highlight Type</th>
+		<th>Date Created</th>
+		<th>Order Status</th>
+		<th>More</th>
+		<th>Your Highlight</th>
+		<%- @highlights.each do |highlight| %>
+			<tr>
+				<td><%= highlight.name %></td>
+				<td><%= highlight.highlight_type.name %></td>
+				<td><%= highlight.created_at.strftime("%Y-%m-%d") %></td>
+				<td><%= highlight.state %></td>
+				<td><%= link_to 'Details', highlight_path(highlight) %></td>
+				<%- unless highlight.highlight_file.blank? %>
+					<td><%= link_to 'Download', highlight.highlight_file.url %></td>
+				<%- end %>
+			</tr>
+		<%- end %>		
+	</table>
 
 </div>
 

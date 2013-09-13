@@ -1,7 +1,5 @@
 .user-show {
-	@include clearfix;
-	ul {
-		margin: 0;
-		padding: 0;
+	a:visited {
+		color: blue;
 	}
 }
