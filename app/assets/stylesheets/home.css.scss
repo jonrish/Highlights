@@ -40,19 +40,19 @@ header {
 	background: url(image_path('petco_outfield_grass.png')) no-repeat;
 	background-size: cover;
 	.header-content {
-		width: 80%;
-		height: 7em;
+		width: 90%;
+		height: 8em;
 		margin: 0 auto;
 		img {
-			height: 6em;
+			height: 7em;
 			float: left;
 			margin: .5em 1em .5em 0;
 		}
 		h1 {
 			float: left;
-			font-size: 2.5em;
+			font-size: 3.5em;
 			font-style: italic;
-			margin: .75em 0;
+			margin: .5em 0;
 			color: rgb(170, 3, 3);
 			a:visited {
 				color: rgb(170, 3, 3);
@@ -102,7 +102,7 @@ nav .admin-nav-content ul {
 }
 
 .main-container {
-	max-width: 1200px;
+	max-width: 1900px;
 	width: 100%;
 	margin: 0 auto;
 	h4, h3 {
@@ -129,8 +129,7 @@ nav .admin-nav-content ul {
 	background: url(image_path('dirt_small.png')) no-repeat;
 	background-size: cover;
 	ul {
-		margin: 0 10%; 
-		margin: 0;
+		margin: 0; 
 		li {
 			background-color: rgba(227, 247, 236, .2);
 			border-radius: 1em;
