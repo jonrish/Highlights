@@ -1,1 +1,7 @@
-<h2>Thanks, you paid <strong><%= number_to_currency(@amount * 0.01) %></strong>!</h2>
+<div class="charges-create">
+	<h2>Thanks, you paid <strong><%= number_to_currency(@amount * 0.01) %></strong>!</h2>
+
+	<h3>Expect an email confirming your order shortly. If you don't receive an email please <%= mail_to 'postmaster@app18042297.mailgun.org', 'let us know.' %></h3>
+	<h3>Of course you can always log into <%= link_to 'your account', user_path(current_user) %> to check on your order</h3>
+	<h3>Otherwise sit back and relax. We'll email you when your highlight is accepted, when it goes into production and finally when it's complete and ready for download.</h3>
+</div>

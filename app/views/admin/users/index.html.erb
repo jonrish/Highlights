@@ -1,10 +1,12 @@
-<%- @users.each do |user| %>
-	<p>
-		<%= user.id %>
-		<%= user.email %>
-		<%= user.admin %>
-		<%= user.highlights.count %>
-		<%= user.created_at.strftime("%Y-%m-%d") %>
-		<%= link_to "View User #{user.id}'s Details", admin_user_path(user) %>
-	</p>
-<%- end %>
+<div class="admin-users-index">
+	<%- @users.each do |user| %>
+		<p>
+			<%= user.id %>
+			<%= user.email %>
+			<%= user.admin %>
+			<%= user.highlights.count %>
+			<%= user.created_at.strftime("%Y-%m-%d") %>
+			<%= link_to "View User #{user.id}'s Details", admin_user_path(user) %>
+		</p>
+	<%- end %>
+</div>
