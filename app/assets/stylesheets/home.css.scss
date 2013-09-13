@@ -13,10 +13,16 @@ a:visited {
 	color: black;
 }
 
-button {
+button, .submit {
 	background: url(image_path('bat_background_small.png'));
 	background-size: cover;
 	border-radius: 1em;
+}
+
+.submit {
+	width: 15em;
+	height: 2em;
+	font-size: 1em;
 }
 
 .btcf:after {
@@ -99,9 +105,13 @@ nav .admin-nav-content ul {
 	max-width: 1200px;
 	width: 100%;
 	margin: 0 auto;
-	h1 {
+	h4, h3 {
+		@include clearfix;
 		margin: 0;
 		padding: .5em 0;
+	}
+	h4 {
+		float: right;
 	}
 }
 

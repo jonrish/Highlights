@@ -2,14 +2,14 @@ class ChargesController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-		@current_highlight = current_user.highlights.last
-		@highlight_type = @current_highlight.highlight_type
+		@highlight = current_user.highlights.last
+		@highlight_type = @highlight.highlight_type
 	end
 
 	def create
-	  @current_highlight = current_user.highlights.last
-	  @highlight_type = @current_highlight.highlight_type
-	  @amount = @current_highlight.highlight_type.price
+	  @highlight = current_user.highlights.last
+	  @highlight_type = @highlight.highlight_type
+	  @amount = @highlight.highlight_type.price
 
 
 	  customer = Stripe::Customer.create(
@@ -24,8 +24,8 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
-	  @current_highlight.paid
-		AdminMailer.delay.new_order_email(@current_highlight)
+	  @highlight.paid
+		AdminMailer.delay.new_order_email(@highlight)
 		UserMailer.delay.processing_email(current_user)
 
 			rescue Stripe::CardError => e
