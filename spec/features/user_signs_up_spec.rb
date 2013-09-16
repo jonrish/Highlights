@@ -9,7 +9,6 @@ feature 'user signs up' do
 		fill_in 'user[password_confirmation]', with: '12345678'
 		count = User.all.count
 		click_on 'Sign up'
-		expect(current_path).to eql(root_path)
 		expect(User.all.count).to eql(count +1)
 	end
 

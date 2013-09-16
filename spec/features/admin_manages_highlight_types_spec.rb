@@ -23,13 +23,13 @@ feature 'admin manages highlight types', %q{
 	scenario 'non-admin tries to visit highlight_type pages' do
 		visit new_admin_highlight_type_path
 		expect(current_path).to_not eql(new_admin_highlight_type_path)
-		expect(current_path).to eql(root_path)
+		expect(current_path).to eql(new_user_session_path)
 		visit admin_highlight_types_path
 		expect(current_path).to_not eql(admin_highlight_types_path)
-		expect(current_path).to eql(root_path)
+		expect(current_path).to eql(new_user_session_path)
 		visit edit_admin_highlight_type_path(highlight_type)
 		expect(current_path).to_not eql(edit_admin_highlight_type_path(highlight_type))
-		expect(current_path).to eql(root_path)
+		expect(current_path).to eql(new_user_session_path)
 	end
 
 	scenario	'admin is able to visit highlight type pages' do

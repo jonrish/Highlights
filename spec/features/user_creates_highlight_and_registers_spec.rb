@@ -11,7 +11,7 @@ feature 'user creates highlight and registers' do
 	scenario 'user selects a plan' do
 		visit root_path
 		within('li#'+highlight_type_super.name) do
-			click_on 'Select This Highlight Type'
+			click_link 'Select This Highlight Type'
 		end
 		expect(current_path).to eql(new_highlight_path)
 	end
@@ -19,7 +19,7 @@ feature 'user creates highlight and registers' do
 	scenario 'user creates a basic highlight and registers' do
 		visit root_path
 		within('li#'+highlight_type_basic.name) do
-			click_on 'Select This Highlight Type'
+			click_link 'Select This Highlight Type'
 		end
 		fill_in 'highlight[name]', with: 'Joe'
 		fill_in 'highlight[user_attributes][email]', with: 'test@test.com'
@@ -27,7 +27,7 @@ feature 'user creates highlight and registers' do
 		fill_in 'highlight[user_attributes][password_confirmation]', with: '12345678'
 		highlight_count = Highlight.all.count
 		user_count = User.all.count
-		click_on 'Create Your Highlight'
+		click_on 'Submit'
 		expect(Highlight.all.count).to eql(highlight_count +1)
 		expect(User.all.count).to eq(user_count +1)
 		expect(current_path).to eql(new_charge_path)
@@ -37,12 +37,12 @@ feature 'user creates highlight and registers' do
 		sign_in_as(user)
 		visit	root_path
 		within('li#'+highlight_type_deluxe.name) do
-			click_on 'Select This Highlight Type'
+			click_link 'Select This Highlight Type'
 		end
 		fill_in 'highlight[name]', with: 'Joe'
 		fill_in 'highlight[age]', with: '39'
 		highlight_count = Highlight.all.count
-		click_on 'Create Your Highlight'
+		click_on 'Submit'
 		expect(Highlight.all.count).to eql(highlight_count +1)
 		expect(current_path).to eql(new_charge_path)
 	end
@@ -51,12 +51,12 @@ feature 'user creates highlight and registers' do
 		sign_in_as(user)
 		visit root_path
 		within('li#'+highlight_type_super.name) do
-			click_on 'Select This Highlight Type'
+			click_link 'Select This Highlight Type'
 		end
 		fill_in 'highlight[name]', with: 'Joe'
 		fill_in 'highlight[family_friends]', with: 'Jimmy'
 		highlight_count = Highlight.all.count
-		click_on 'Create Your Highlight'
+		click_on 'Submit'
 		expect(Highlight.all.count).to eql(highlight_count +1)
 		expect(current_path).to eql(new_charge_path)
 		expect(page).to have_content(highlight_type_super.name)
