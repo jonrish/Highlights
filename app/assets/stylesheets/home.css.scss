@@ -123,20 +123,25 @@ nav .admin-nav-content ul {
 	}
 }
 
+ul {
+	margin: 0;
+}
+
 .highlight-types {
-	margin: 0 auto;
+	margin: 0;
 	width: 100%;
 	background: url(image_path('dirt_small.png')) no-repeat;
 	background-size: cover;
 	ul {
-		margin: 0; 
+		margin: 0;
+		padding: 0;
 		li {
 			background-color: rgba(227, 247, 236, .2);
 			border-radius: 1em;
 			float: left;
 			display: inline-block;
-			width: 31%;
-			margin: 5% 1.16666% 10% 1.16666%;
+			width: 29%;
+			margin: 5% 2.1666% 10% 2.1666%;
 			text-align: center;
 			font-weight: 600;
 			font-size: 2em;
