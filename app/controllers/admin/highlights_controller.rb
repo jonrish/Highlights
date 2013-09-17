@@ -3,7 +3,7 @@ class Admin::HighlightsController < ApplicationController
 	before_action :is_admin?
 
 	def index
-		@highlights = Highlight.all
+		@highlights = Highlight.all.order("created_at DESC")
 	end
 
 	def show
