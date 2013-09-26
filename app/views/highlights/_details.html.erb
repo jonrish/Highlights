@@ -1,0 +1,103 @@
+<div class="highlight-details">
+	<h2>Here are all of your highlight details.</h2>
+
+	<table>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Name:</td>
+			<td><%= @highlight.name %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Nickname:</td>
+			<td><%= @highlight.nickname %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Hometown:</td>
+			<td><%= @highlight.hometown %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Bats:</td>
+			<td><%= @highlight.bats %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Throwing Hand:</td>
+			<td><%= @highlight.throwing_hand %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Scenario:</td>
+			<td><%= @highlight.scenario %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Position:</td>
+			<td><%= @highlight.position %></td>
+		</tr>
+		<%- if @highlight.highlight_type_id > 1 %>
+			<tr>
+				<td class="old_baseball_list"></td>
+				<td>School:</td>
+				<td><%= @highlight.school %></td>
+			</tr>
+			<tr>
+				<td class="old_baseball_list"></td>
+				<td>Age:</td>
+				<td><%= @highlight.age %></td>
+			</tr>
+		<%- end %>
+		<%- if @highlight.highlight_type_id > 2 %>
+			<tr>
+				<td class="old_baseball_list"></td>
+				<td>Others to reference:</td>
+				<td><%= @highlight.family_friends %></td>
+			</tr>
+			<tr>
+				<td class="old_baseball_list"></td>
+				<td>Opponent:</td>
+				<td><%= @highlight.opponent %></td>
+			</tr>
+		<%- end %>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Additional Info:</td>
+			<td><%= @highlight.notes %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Type of Highlight:</td>
+			<td><%= @highlight_type.name %></td>
+		</tr>
+		<tr>
+			<td class="old_baseball_list"></td>
+			<td>Order Status:</td>
+			<td><%= @highlight.state %></td>
+		</tr>
+		<%- unless @highlight.highlight_file.blank? %>
+			<tr>
+				<td class="old_baseball_list"></td>
+				<td>Your Highlight:</td>
+				<td><%= link_to 'Download', @highlight.highlight_file.url %></td>
+			</tr>
+		<%- end %>
+	</table>
+
+	<%- if @highlight.state == 'pending' %>
+		<button><%= link_to 'Click to make changes', edit_highlight_path(@highlight) %></button>
+		<button><%= link_to 'Cancel / Delete This Highlight', @highlight, method: :delete, data: { confirm: "Are you sure?" } %></button>
+		<h3>Your Custom Highlight Costs: <%= number_to_currency(@highlight_type.price * 0.01) %></h3>
+		<%= form_tag charges_path do %>
+
+		  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		          data-description="<%= @highlight_type.name %> Highlight"
+		          data-amount="<%= @highlight_type.price %>"></script>
+
+		<% end %>
+	<%- else %>
+		<h3>You paid <%= number_to_currency(@highlight_type.price * 0.01)%> for your custom highlight.</h3>
+	<%- end %>
+</div>

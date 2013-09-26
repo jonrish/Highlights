@@ -27,7 +27,7 @@ class HighlightsController < ApplicationController
 
 	def edit
 		@highlight = current_user.highlights.find(params[:id])
-		@highlight_type = HighlightType.find(@highlight.highlight_type_id)
+		@highlight_type = @highlight.highlight_type
 	end
 
 	def update

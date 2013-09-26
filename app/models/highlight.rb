@@ -29,9 +29,15 @@ class Highlight < ActiveRecord::Base
 			transition [:complete, :in_production, :accepted, :pending] => :processing
 		end
 
+		after_transition :to => :paid, :do => :paid
 		after_transition :to => :accepted,  :do => :accepted
 		after_transition :to => :in_production,  :do => :in_production
 		after_transition :to => :complete, :do => :complete
+	end
+
+	def paid
+		AdminMailer.delay.new_order_email(self)
+		UserMailer.delay.processing_email(self.user)
 	end
 
 	def accepted

@@ -33,8 +33,7 @@ h2 {
 	}
 }
 
-.highlight-show {
-	ul {
-		list-style-image: url(image_path('old_baseball_list.png'));
-	}
+.old_baseball_list {
+	background: url(image_path('old_baseball_list.png')) no-repeat;
+	width: 8%;
 }

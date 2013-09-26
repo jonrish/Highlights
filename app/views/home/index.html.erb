@@ -19,18 +19,18 @@
 	<h3>Buy it as a gift. Buy it for yourself.</h3>
 	<h4>Your highlight will be created by <em>Jon Rish</em>. Jon has more than 20 years of sports broadcasting experience - including seven plus seasons as a member of the <em>Boston Red Sox</em> radio network. (2006-2013)</h4>
 </div>
-</div>
-</div>
-</div>
-<div class="highlight-types btcf">
-	<ul>
-		<%- @highlight_types.each do |type| %>
-			<li id="<%= type.name %>">
-				<p><%= type.name %></p>
-				<p><%= type.description %></p>
-				<p><%= number_to_currency(type.price * 0.01) %></p>
-				<button><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></button>
-			</li>
-		<%- end %>
-	</ul>
-</div>
+
+<%- content_for :bottom_banner do %>
+	<div class="highlight-types btcf">
+		<ul>
+			<%- @highlight_types.each do |type| %>
+				<li id="<%= type.name %>">
+					<p><%= type.name %></p>
+					<p><%= type.description %></p>
+					<p><%= number_to_currency(type.price * 0.01) %></p>
+					<button><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></button>
+				</li>
+			<%- end %>
+		</ul>
+	</div>
+<%- end %>
