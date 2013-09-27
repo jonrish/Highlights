@@ -11,10 +11,6 @@
 
 <%= render "shared/header" %>
 
-<%- if user_signed_in? && current_user.admin? %>
-	<%= render "shared/admin_nav" %>
-<%- end %>
-
 <div class="scoreboard-background">
 	<div class="main-container btcf">
 		<div class="content btcf">

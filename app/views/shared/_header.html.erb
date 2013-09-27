@@ -1,15 +1,25 @@
 <header>
 	<div class="header-content btcf">
-		<%= image_tag 'old_baseball_small.png' %>
-		<h1><%= link_to 'You Make The Play!', root_path %></h1>
-		<ul>
+		<div id="header-baseball">
+			<%= image_tag 'old_baseball_small.png' %>
+		</div>
+		<div id="header-links">
 			<%- if user_signed_in? %>
-				<li>Signed in as <%= current_user.email %></li>
-				<li><button><%= link_to 'My Account', user_path(current_user) %></button></li>
-				<li><button><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button></li>
+				<ul>
+					<li><button><%= link_to 'My Account', user_path(current_user) %></button></li>
+					<li><button><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button></li>
+					<%- if current_user.admin %>
+						<li><button><%= link_to "Admin", root_path %></button></li>
+					<%- end %>
+				</ul>
 			<%- else %>
-				<li><button><%= link_to 'Sign In', new_user_session_path %></button></li>
+				<ul>
+					<li><button><%= link_to 'Sign In', new_user_session_path %></button></li>
+				</ul>
 			<%- end %>
-		</ul>
+		</div>
+		<div id="logo">
+			<h1><%= link_to 'You Make The Play!', root_path %></h1>
+		</div>
 	</div>
 </header>
