@@ -13,6 +13,7 @@ Highlights3::Application.routes.draw do
     resources :users
     resources :highlight_types
     resources :highlights
+    resources :admin, only: :index
   end
 
   root 'home#index'

@@ -1,5 +1,5 @@
 <div class="sell btcf">
-	<h2>Now's your chance to be the star!</h2>
+	<h1>Now's <em>your</em> chance to be the star!</h1>
 	<ul>
 		<li>Have you ever dreamed of winning it in the bottom of the 9th with a homer?</li>
 		<li>Maybe it's your Dad who strikes out the side to seal the series?</li>
@@ -24,11 +24,13 @@
 	<div class="highlight-types btcf">
 		<ul>
 			<%- @highlight_types.each do |type| %>
-				<li id="<%= type.name %>">
-					<p><%= type.name %></p>
-					<p><%= type.description %></p>
-					<p><%= number_to_currency(type.price * 0.01) %></p>
-					<button><%= link_to 'Select This Highlight Type', new_highlight_path(:highlight_type_id => type.id) %></button>
+				<li id='<%= type.name %>'>
+					<%= link_to new_highlight_path(:highlight_type_id => type.id) do %>
+						<p><%= type.name %></p>
+						<p><%= type.description %></p>
+						<p><%= number_to_currency(type.price * 0.01) %></p>
+						<button></button>
+					<%- end %>
 				</li>
 			<%- end %>
 		</ul>
